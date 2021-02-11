@@ -1,18 +1,18 @@
-require "serverTest"
+require_relative "../bin/serverView.rb"
 
-describe Server do
+describe ServerView do
     before :all do
-        port = 10044
-        @server  = Thread.new {Server.new(port, "0.0.0.0") } 
+        port = 10033
+        @server  = Thread.new {ServerView.new(port, "0.0.0.0") } 
         @client1 = TCPSocket.open( "localhost", port )
         @client2 = TCPSocket.open( "localhost", port )
     end
 
-    context 'connection of client' do       
+    context 'authentication of client' do       
         before :all do
             x = Thread.new {
-                @client1.puts "set"
-                @client1.puts "user pass"
+                @client1.puts "set 1 1 1 11"
+                @client1.puts "user1 pass12"
             }
             y = Thread.new {
                 @response1 = @client1.gets.chomp
@@ -20,37 +20,37 @@ describe Server do
             x.join  
             y.join
             x2 = Thread.new {
-                @client2.puts "set"
-                @client2.puts "user bad"
-                @client2.puts "set"
-                @client2.puts "user"
-                @client2.puts "user"
-                @client2.puts "set"
-                @client2.puts "user pass"
+                @client2.puts "set 1 1 1 8"
+                @client2.puts "user1 bad"
+                @client2.puts "set 1 1 1 3"
+                @client2.puts "use "
+                @client2.puts "get 1 2"
+                @client2.puts "set 1 1 1 10"
+                @client2.puts "admin admin"
             }
             y2 = Thread.new {
                 @response2 = @client2.gets.chomp
                 @response3 = @client2.gets.chomp
                 @response4 = @client2.gets.chomp
                 @response5 = @client2.gets.chomp
-            }
+                }
             x2.join  
             y2.join
         end
 
-        it "authentication success" do
+        it "success" do
             expect(@response1).to eq("STORED")
         end
 
-        it "authentication user and pass doesnt match" do
+        it "user and pass doesnt match" do
             expect(@response2).to eq("CLIENT_ERROR, username and password doesnt match")
         end
 
-        it "authentication empty field" do
-            expect(@response3).to eq("CLIENT_ERROR, username and password cant be empty")
+        it "empty field" do
+            expect(@response3).to eq("CLIENT_ERROR, username and password must be 2 parameters")
         end
 
-        it "authentication first message must be set" do
+        it "first message must be set" do
             expect(@response4).to eq("CLIENT_ERROR, Please authenticate first with a set message")
         end
 
@@ -397,7 +397,7 @@ describe Server do
             expect(@response9).to eq("END")
         end
 
-        it "keys dont exists" do
+        it "keys doesnt exists" do
             expect(@response10).to eq("END")
         end
     end

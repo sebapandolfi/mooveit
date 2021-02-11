@@ -5,13 +5,13 @@ class Client
       @socket = socket
       @request_object = send_request
       @response_object = listen_response
-
       @request_object.join # will send the request to server
       @response_object.join # will receive response from server
    end
 
+   private
    def send_request
-      puts "Please enter your username to establish a connection..."
+      puts "Please enter your username and password to establish a connection..."
       begin
          Thread.new do
             loop do
@@ -46,8 +46,6 @@ class Client
       end
    end
 end
-
-
 
 socket = TCPSocket.open( "127.0.0.1", ARGV[0] )
 Client.new( socket )
