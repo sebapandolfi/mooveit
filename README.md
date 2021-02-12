@@ -5,7 +5,7 @@ First of all, we need to get the server/bin running. For it, in the folder serve
 `ruby server.rb {port we wish to use}`
 
 As we can see in the next image.
-![alt text](images/server.png)
+![alt text](images/server.png)  
 To shutdown the server correctly we can do it with ctrl + c or ctrl + z.
 
 ## Run the client
