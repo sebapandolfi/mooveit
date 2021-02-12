@@ -64,6 +64,15 @@ Then it starts running. In the upper right corner it shows the seconds elapsed s
 and the number of tcp sampler executed from the total. Once it reaches the total of 1000, we
 need to kill the server.
 The listeners show the result.
+![alt text](images/listener1.png) 
+![alt text](images/listener2.png) 
+![alt text](images/listener3.png) 
+![alt text](images/listener4.png) 
+As we can see all the clients receive the correct response, the time dont give much
+information because it depends on the moment we kill the server.
+The important information is that it can answer 100 clients per second without problems.
+
+
 
 
 
