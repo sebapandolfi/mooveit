@@ -4,7 +4,7 @@ First of all, we need to get the server/bin running. For it, in the folder serve
 
 `ruby server.rb {port we wish to use}`
 
-As we can see in the next image.
+As we can see in the next image.  
 ![alt text](images/server.png)  
 To shutdown the server correctly we can do it with ctrl + c or ctrl + z.
 
@@ -12,7 +12,7 @@ To shutdown the server correctly we can do it with ctrl + c or ctrl + z.
 The client only works, if it is run in the same machine that the server. That is because it is
 configured to use the interface 127.0.0.1 that is local to the machine. We can simply solve
 this changing the next line.
-![alt text](images/tcpsocket.png)
+![alt text](images/tcpsocket.png)  
 Instead of using 127.0.0.1, we configure the IP address where the server is running.  
 To run the client, in the folder client we execute 
 
@@ -63,7 +63,7 @@ Once in there we open the file of Test Plan.jmx and we press play with the green
 Then it starts running. In the upper right corner it shows the seconds elapsed since the start
 and the number of tcp sampler executed from the total. Once it reaches the total of 1000, we
 need to kill the server.
-The listeners show the result.
+The listeners show the result.  
 ![alt text](images/listener1.png) 
 ![alt text](images/listener2.png) 
 ![alt text](images/listener3.png) 
