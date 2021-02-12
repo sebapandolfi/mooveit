@@ -1,6 +1,6 @@
 # Memcache
 ## Run the server
-First of all, we need to get the server/bin running. For it, in the folder server we execute
+First of all, we need to get the server running. For it, in the folder server/bin we execute
 
 `ruby server.rb {port we wish to use}`
 
@@ -31,7 +31,7 @@ Authorized users are in Users/users.txt file. The first row is user and the seco
 ## Running tests
 
 ### Unit tests
-The files for the unit test are in the folder server/spec. To run the unit tests in the folder server we execute
+The file for the unit test are in the folder server/spec. To run the unit tests in the folder server we execute
 
 `rspec`  
 
