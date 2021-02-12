@@ -5,3 +5,4 @@ First of all, we need to get the server/bin running. For it, in the folder serve
 `ruby server.rb {port we wish to use}`
 
 As we can see in the next image.
+![alt text](images/server.png)
