@@ -19,9 +19,9 @@ To run the client, in the folder client we execute
 `ruby client.rb {same port we use previously}`  
 
 Once it’s running the first message must be of authentication. For this we send a fake set
-message and after that the user and password.
+message and after that the user and password.  
 After this we can start sending requests. This must be done following the structure defined
-in the protocol's documentation.
+in the protocol's documentation.  
 The next image is a sample of this exchanging message.
 ![alt text](images/communication.png)
 
@@ -41,11 +41,11 @@ If everything is correct, after a short delay because of the expiration time tes
 ### Load test
 The file for the load test is Test Plan.jmx, in the folder server/Jmeter. Remember that
 the server must be running for requests to be answered. And the IP address and port in the
-tcp sampler must be correctly configured. In this case, it is using the loopback address and
-the port 10001. The server must be running using the same port.  
+tcp sampler must be correctly configured.  
+In this case, it is using the loopback address and the port 10001. The server must be running using the same port.  
 ![alt text](images/tcpsampler.png) 
 This file run’s 1000 sample client’s in 10 seconds, every client sends 1 message of
-authentication, 1 message of set and 1 message of get.
+authentication, 1 message of set and 1 message of get.  
 To run this file we have 2 options, in the graphical interface or from the terminal.
 From the terminal, in the folder apache-jmeter-5.3/bin we execute  
 
@@ -58,7 +58,7 @@ The graphical interface is open in the folder apache-jmeter-5.3/bin with the com
 
 `./jmeter`
 
-Once in there we open the file of Test Plan.jmx and we press play with the green arrow.
+Once in there we open the file of Test Plan.jmx and we press play with the green arrow.  
 ![alt text](images/jmeterGui.png) 
 Then it starts running. In the upper right corner it shows the seconds elapsed since the start
 and the number of tcp sampler executed from the total. Once it reaches the total of 1000, we
@@ -69,7 +69,7 @@ The listeners show the result.
 ![alt text](images/listener3.png) 
 ![alt text](images/listener4.png) 
 As we can see all the clients receive the correct response, the time dont give much
-information because it depends on the moment we kill the server.
+information because it depends on the moment we kill the server.  
 The important information is that it can answer 100 clients per second without problems.
 
 
